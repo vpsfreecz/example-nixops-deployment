@@ -12,6 +12,7 @@ in
     enable = true;
     virtualHosts = {
       "example" = {
+        default = true; # this is a default vhost
         root = myRoot;
         locations = {
           "/" = {
