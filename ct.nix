@@ -7,6 +7,6 @@ in
 {
   imports = [
     <nixpkgs/nixos/modules/virtualisation/container-config.nix>
-    "${vpsadminos}/os/lib/nixos-container/configuration.nix"
+    "${vpsadminos}/os/lib/nixos-container/vpsadminos.nix"
   ];
 }
