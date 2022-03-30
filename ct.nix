@@ -2,7 +2,7 @@
 
 
 let
-  vpsadminos = builtins.fetchTarball https://github.com/vpsfreecz/vpsadminos/archive/master.tar.gz;
+  vpsadminos = builtins.fetchTarball https://github.com/vpsfreecz/vpsadminos/archive/staging.tar.gz;
 in
 {
   imports = [
