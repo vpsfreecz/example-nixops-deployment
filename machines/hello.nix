@@ -12,14 +12,9 @@ in
   # deployment.targetEnv = ; # Only set if you deploy using a nixops plugin 
   # e.g. hetzner
 
-  deployment.keys.my-secret.text = "shhh this is a secret";
-  deployment.keys.my-secret.user = "root";
-  
   # Enable SSH server!
   services.openssh.enable = true;
-  users.users.root.openssh.authorizedKeys.keys = [
-      "your ssh key" #TODO: replace it
-      ];
+
   # Do not build a manual. This is time consuming and not needed on a server
   documentation.nixos.enable = false;
   imports = [ ../vpsadminos.nix ];

@@ -14,13 +14,11 @@ its [admin interface](https://vpsadmin.vpsfree.cz)
 * Verify that you can enter ssh into this machine without a password using `ssh root@1.2.3.4`
 * Ensure that you have a recent version of nix (we use 2.7, but from 2.5 upwards will probably be okay)
 * Ensure that your `nixops --version` responds with something like `NixOps 2.0.0-pre-7220cbd`
-* Adapt in machines/hello.nix the value of `1.2.3.4` in the targetHost definition
-* Change in machines/hello.nix "your ssh key" to your public key
-
-Now test everything with the following commands on you shell
-
 * `git clone https://github.com/vpsfreecz/example-nixops-deployment.git`
 * `cd example-nixops-deployment`
+* Adapt in machines/hello.nix the value of `1.2.3.4` in the targetHost definition
+* Change in machines/hello.nix "your ssh key" to your public key
+* `rm vpsadminos.nix; wget https://raw.githubusercontent.com/vpsfreecz/vpsadminos/staging/os/lib/nixos-container/vpsadminos.nix` to get newest version of vpsadminos.ni
 * `nixops create -d hello`
 * `nixops deploy -d hello --test`
 * Verify that you can enter via `ssh root@1.2.3.4` and have the commands like vim, git, fish installed
@@ -39,11 +37,6 @@ If we do not specify the `NIXOPS_DEPLOYMENT` environment variable, we need to us
 ### in flake.nixops
 
 * Added `network.enableRollback = true;` for rollback. Use it `nixops list-generations -d hello`
-
-### in vpsadminos.nix
-
-Here we might have problems as I think the definitions for documentation and
-openssh might contradict with the settings in machine/hello.nix.
 
 ## Ensure correct versions of nix and nixops
 
